@@ -1,43 +1,72 @@
 <template>
-    <span class="icon angle"
-        :aria-hidden="ariaHidden">
-        <fa icon="angle-down"/>
+    <span class="icon dropdown-indicator"
+        :class="indicatorClass"
+        :aria-hidden="false">
+        <fa :icon="faChevronRight"/>
     </span>
 </template>
 
 <script>
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faAngleDown);
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 export default {
     name: 'DropdownIndicator',
 
     components: { Fa },
 
+    data: () => ({
+        faChevronRight,
+    }),
+
     props: {
         open: {
+            type: Boolean,
+            default: false,
+        },
+        opensUp: {
             type: Boolean,
             default: false,
         },
     },
 
     computed: {
-        ariaHidden() {
-            return this.open ? null : true;
+        indicatorClass() {
+            return {
+                'is-collapsed': !this.open,
+                'is-open-up': this.open && this.opensUp,
+                'is-open-down': this.open && !this.opensUp,
+            };
         },
     },
 };
 </script>
 
 <style lang="scss">
-    .icon.angle[aria-hidden="true"] {
-        transform: rotate(180deg);
-    }
-
-    .icon.angle {
+    .icon.dropdown-indicator {
+        width: 0.6rem;
+        height: 0.6rem;
+        font-size: 0.95rem;
+        line-height: 1;
         transition: transform .300s ease;
+        transform: rotate(0deg);
+
+        &.is-compact {
+            width: 0.48rem;
+            height: 0.48rem;
+            font-size: 0.76rem;
+        }
+
+        &.is-collapsed {
+            transform: rotate(0deg);
+        }
+
+        &.is-open-down {
+            transform: rotate(90deg);
+        }
+
+        &.is-open-up {
+            transform: rotate(-90deg);
+        }
     }
 </style>
