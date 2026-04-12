@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/dropdown-indicator",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A simple dropdown indicator",
   "main": "index.js",
   "repository": {
