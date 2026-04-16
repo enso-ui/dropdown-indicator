@@ -44,17 +44,17 @@ export default {
 
 <style lang="scss">
     .icon.dropdown-indicator {
-        width: 0.6rem;
-        height: 0.6rem;
-        font-size: 0.95rem;
+        width: 0.5rem;
+        height: 0.5rem;
+        font-size: 0.8rem;
         line-height: 1;
         transition: transform .300s ease;
         transform: rotate(0deg);
 
         &.is-compact {
-            width: 0.48rem;
-            height: 0.48rem;
-            font-size: 0.76rem;
+            width: 0.4rem;
+            height: 0.4rem;
+            font-size: 0.65rem;
         }
 
         &.is-collapsed {
