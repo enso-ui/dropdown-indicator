@@ -1,7 +1,7 @@
 {
   "name": "@enso-ui/dropdown-indicator",
   "version": "3.1.2",
-  "description": "A simple dropdown indicator",
+  "description": "Chevron indicator component for dropdown triggers in Enso UI.",
   "main": "index.js",
   "repository": {
     "type": "git",
